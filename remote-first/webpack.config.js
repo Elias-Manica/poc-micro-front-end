@@ -22,12 +22,15 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    port: 9001,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'MFE1',
+      name: 'MFEComponents',
       filename: 'remoteEntry.js',
       remotes: {},
       exposes: {
@@ -36,9 +39,11 @@ module.exports = {
       shared: {
         react: {
           singleton: true,
+          requiredVersion: '^18.2.0',
         },
         'react-dom': {
           singleton: true,
+          requiredVersion: '^18.2.0',
         },
       },
     }),

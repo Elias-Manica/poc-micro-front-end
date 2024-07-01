@@ -21,26 +21,27 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    port: 9000,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
     new ModuleFederationPlugin({
-      name: 'host',
+      name: 'MFEhost',
       filename: 'remoteEntry.js',
       remotes: {
-        REMOTEFISRT: 'remote-first@http://localhost:8081/remoteEntry.js',
+        MFEComponents: 'MFEComponents@http://localhost:9001/remoteEntry.js',
       },
       exposes: {},
       shared: {
-        ...deps,
         react: {
-          eager: true,
           singleton: true,
         },
         'react-dom': {
-          eager: true,
           singleton: true,
+          requiredVersion: '^18.2.0',
         },
       },
     }),
