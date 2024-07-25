@@ -35,7 +35,7 @@ module.exports = {
       remotes: {},
       exposes: {
         './App': './src/bootstrap',
-        // './Button': './src/Button',
+        './Button': './src/Button',
       },
       shared: {
         react: {

@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Button from './Button';
 
 const App = () => {
   return (
-    <>
+    <div>
       <div>Application remote</div>
-      <Button />
-    </>
+    </div>
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 
 root.render(<App />);
 
