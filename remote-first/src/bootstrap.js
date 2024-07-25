@@ -5,14 +5,14 @@ import Button from './Button';
 const App = () => {
   return (
     <>
-      <div>Hello, world remote!</div>
+      <div>Application remote</div>
       <Button />
     </>
   );
 };
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<App />);
+
+export default App;
