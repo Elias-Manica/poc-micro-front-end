@@ -1,32 +1,56 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import Button from 'MFEComponents/Button';
 import App from 'MFEComponents/App';
 
-import { I18nextProvider, useTranslation } from 'react-i18next';
-import hostInstance from './services/instanceI18n';
-import useSwitchLanguage from './services/change-language';
+import {
+  TranslationProvider,
+  i18nInstance,
+  useSwitchLanguage,
+  useTranslation,
+} from '../../iris-translate/dist';
+
+const additionalResources = {
+  en: {
+    translation: {
+      additionalKey: 'Additional English Translation',
+    },
+  },
+  ptbr: {
+    translation: {
+      additionalKey: 'Tradução Adicional em Português',
+    },
+  },
+};
 
 const HostApp: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <I18nextProvider i18n={hostInstance}>
+    <TranslationProvider additionalResources={additionalResources}>
       <div style={{ backgroundColor: 'green' }}>
         <p>aplicação A principal</p>
         <button
           onClick={() => {
-            useSwitchLanguage(hostInstance.language === 'en' ? 'ptbr' : 'en');
+            console.log(i18nInstance.language, ' i18nInstance');
+            useSwitchLanguage('en');
           }}
         >
-          (HOST) Mudar o idioma para{' '}
-          {hostInstance.language === 'en' ? 'Portugues 🇧🇷' : 'Ingles 🇺🇸'}
+          Mudar o idioma para Inglês
+        </button>
+        <button
+          onClick={() => {
+            console.log(i18nInstance.language, ' i18nInstance');
+            useSwitchLanguage('ptbr');
+          }}
+        >
+          Mudar o idioma para Português
         </button>
         <p>Palavra para alternar: {t('welcome')}</p>
+        <p>Palavra adicional: {t('additionalKey')}</p>
         <App />
       </div>
-    </I18nextProvider>
+    </TranslationProvider>
   );
 };
 
