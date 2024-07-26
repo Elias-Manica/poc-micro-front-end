@@ -1,0 +1,19 @@
+{
+  "welcome": "Bem-vindo",
+  "logout": "Sair",
+  "profile": "Perfil",
+  "settings": "Configurações",
+  "dashboard": "Painel",
+  "notifications": "Notificações",
+  "help": "Ajuda",
+  "search": "Buscar",
+  "save": "Salvar",
+  "cancel": "Cancelar",
+  "edit": "Editar",
+  "delete": "Excluir",
+  "submit": "Enviar",
+  "language": "Idioma",
+  "theme": "Tema",
+  "light": "Claro",
+  "dark": "Escuro"
+}

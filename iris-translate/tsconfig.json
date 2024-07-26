@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs", // ou "ESNext" para ES Modules
+    "lib": ["dom", "es2015"],
+    "jsx": "react",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true, // Para gerar arquivos .d.ts
+    "outDir": "./dist", // Diretório de saída
+    "resolveJsonModule": true
+  },
+  "include": ["src"]
+}
