@@ -1,0 +1,19 @@
+{
+  "welcome": "Welcome",
+  "logout": "Logout",
+  "profile": "Profile",
+  "settings": "Settings",
+  "dashboard": "Dashboard",
+  "notifications": "Notifications",
+  "help": "Help",
+  "search": "Search",
+  "save": "Save",
+  "cancel": "Cancel",
+  "edit": "Edit",
+  "delete": "Delete",
+  "submit": "Submit",
+  "language": "Language",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
+}

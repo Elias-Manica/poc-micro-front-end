@@ -20,13 +20,10 @@ const HostApp: React.FC = () => {
             useSwitchLanguage(hostInstance.language === 'en' ? 'ptbr' : 'en');
           }}
         >
-          Mudar o idioma para{' '}
-          {hostInstance.language === 'en' ? 'Portugues' : 'Ingles'}
+          (HOST) Mudar o idioma para{' '}
+          {hostInstance.language === 'en' ? 'Portugues 🇧🇷' : 'Ingles 🇺🇸'}
         </button>
         <p>Palavra para alternar: {t('welcome')}</p>
-        <div style={{ marginTop: 20, marginBottom: 20 }}>
-          <Button />
-        </div>
         <App />
       </div>
     </I18nextProvider>
