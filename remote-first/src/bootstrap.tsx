@@ -2,22 +2,31 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 import remoteInstance from './services/instanceI18n';
-import useSwitchLanguage from './services/change-language';
 
 const App = () => {
   const { t } = useTranslation();
+
+  React.useEffect(() => {
+    const handleLanguageChange = (event: CustomEvent<{ language: string }>) => {
+      const newLanguage = event.detail.language;
+      remoteInstance.changeLanguage(newLanguage);
+    };
+
+    const eventListener: EventListener = (event) => {
+      handleLanguageChange(event as CustomEvent<{ language: string }>);
+    };
+
+    window.addEventListener('languageChange', eventListener);
+
+    return () => {
+      window.removeEventListener('languageChange', eventListener);
+    };
+  }, []);
+
   return (
     <I18nextProvider i18n={remoteInstance}>
       <div style={{ backgroundColor: 'orange' }}>
         <div>Application B remota</div>
-        <button
-          onClick={() => {
-            useSwitchLanguage(remoteInstance.language === 'en' ? 'ptbr' : 'en');
-          }}
-        >
-          (REMOTE) Mudar o idioma para{' '}
-          {remoteInstance.language === 'en' ? 'Portugues 🇧🇷' : 'Ingles 🇺🇸'}
-        </button>
         <p>Palavra para mudar: {t('welcome')}</p>
       </div>
     </I18nextProvider>

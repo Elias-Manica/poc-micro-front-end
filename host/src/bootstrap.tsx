@@ -26,6 +26,14 @@ const additionalResources = {
 const HostApp: React.FC = () => {
   const { t } = useTranslation();
 
+  const changeLanguage = (language: string) => {
+    i18nInstance.changeLanguage(language);
+    useSwitchLanguage(language);
+    window.dispatchEvent(
+      new CustomEvent('languageChange', { detail: { language } })
+    );
+  };
+
   return (
     <TranslationProvider additionalResources={additionalResources}>
       <div style={{ backgroundColor: 'green' }}>
@@ -33,7 +41,7 @@ const HostApp: React.FC = () => {
         <button
           onClick={() => {
             console.log(i18nInstance.language, ' i18nInstance');
-            useSwitchLanguage('en');
+            changeLanguage('en');
           }}
         >
           Mudar o idioma para Inglês
@@ -41,7 +49,7 @@ const HostApp: React.FC = () => {
         <button
           onClick={() => {
             console.log(i18nInstance.language, ' i18nInstance');
-            useSwitchLanguage('ptbr');
+            changeLanguage('ptbr');
           }}
         >
           Mudar o idioma para Português
