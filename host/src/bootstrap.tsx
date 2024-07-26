@@ -40,7 +40,6 @@ const HostApp: React.FC = () => {
         <p>aplicação A principal</p>
         <button
           onClick={() => {
-            console.log(i18nInstance.language, ' i18nInstance');
             changeLanguage('en');
           }}
         >
@@ -48,7 +47,6 @@ const HostApp: React.FC = () => {
         </button>
         <button
           onClick={() => {
-            console.log(i18nInstance.language, ' i18nInstance');
             changeLanguage('ptbr');
           }}
         >

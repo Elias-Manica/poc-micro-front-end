@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { I18nextProvider, useTranslation } from 'react-i18next';
-import remoteInstance from './services/instanceI18n';
+import {
+  TranslationProvider,
+  i18nInstance,
+  useTranslation,
+} from '../../iris-translate/dist';
 
 const App = () => {
   const { t } = useTranslation();
@@ -9,7 +12,7 @@ const App = () => {
   React.useEffect(() => {
     const handleLanguageChange = (event: CustomEvent<{ language: string }>) => {
       const newLanguage = event.detail.language;
-      remoteInstance.changeLanguage(newLanguage);
+      i18nInstance.changeLanguage(newLanguage);
     };
 
     const eventListener: EventListener = (event) => {
@@ -24,12 +27,12 @@ const App = () => {
   }, []);
 
   return (
-    <I18nextProvider i18n={remoteInstance}>
+    <TranslationProvider>
       <div style={{ backgroundColor: 'orange' }}>
         <div>Application B remota</div>
         <p>Palavra para mudar: {t('welcome')}</p>
       </div>
-    </I18nextProvider>
+    </TranslationProvider>
   );
 };
 
