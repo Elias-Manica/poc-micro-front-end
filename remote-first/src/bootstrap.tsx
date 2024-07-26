@@ -9,6 +9,19 @@ import {
 const App = () => {
   const { t } = useTranslation();
 
+  const additionalResources = {
+    en: {
+      translation: {
+        additionalKeyWord: 'Additional English Word',
+      },
+    },
+    ptbr: {
+      translation: {
+        additionalKeyWord: 'Palavra Adicional em Português',
+      },
+    },
+  };
+
   React.useEffect(() => {
     const handleLanguageChange = (event: CustomEvent<{ language: string }>) => {
       const newLanguage = event.detail.language;
@@ -27,10 +40,11 @@ const App = () => {
   }, []);
 
   return (
-    <TranslationProvider>
+    <TranslationProvider additionalResources={additionalResources}>
       <div style={{ backgroundColor: 'orange' }}>
         <div>Application B remota</div>
-        <p>Palavra para mudar: {t('welcome')}</p>
+        <p>Palavra para mudar: {t('save')}</p>
+        <p>Palavra adicional: {t('additionalKeyWord')}</p>
       </div>
     </TranslationProvider>
   );

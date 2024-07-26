@@ -40,17 +40,11 @@ const HostApp: React.FC = () => {
         <p>aplicação A principal</p>
         <button
           onClick={() => {
-            changeLanguage('en');
+            changeLanguage(i18nInstance.language === 'en' ? 'ptbr' : 'en');
           }}
         >
-          Mudar o idioma para Inglês
-        </button>
-        <button
-          onClick={() => {
-            changeLanguage('ptbr');
-          }}
-        >
-          Mudar o idioma para Português
+          Mudar o idioma para{' '}
+          {i18nInstance.language === 'en' ? 'português 🇧🇷' : 'inglês 🇺🇸'}
         </button>
         <p>Palavra para alternar: {t('welcome')}</p>
         <p>Palavra adicional: {t('additionalKey')}</p>
