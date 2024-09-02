@@ -6,6 +6,8 @@ import {
   useTranslation,
 } from '../../iris-translate/dist';
 
+import './remote.css'
+
 const App = () => {
   const { t } = useTranslation();
 
@@ -41,8 +43,8 @@ const App = () => {
 
   return (
     <TranslationProvider additionalResources={additionalResources}>
-      <div style={{ backgroundColor: 'orange' }}>
-        <div>Application B remota</div>
+      <div className='remote-class'>
+        <div className='shared-class'>Application B remota</div>
         <p>Palavra para mudar: {t('save')}</p>
         <p>Palavra adicional: {t('additionalKeyWord')}</p>
       </div>

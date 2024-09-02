@@ -20,6 +20,25 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     {
+      //       loader: 'style-loader',
+      //       options: {
+      //         insert: require.resolve('./styleLoader.js'),
+      //       },
+      //     },
+      //     'css-loader',
+      //   ],
+      // },
+      {
+        test: /\.css$/, // Aplica essas regras para arquivos que terminam em .css
+        use: [
+          'style-loader', // Insere o CSS em tags <style> no HTML
+          'css-loader',   // Lê o CSS e resolve @import e url()
+        ],
+      },
     ],
   },
   devServer: {

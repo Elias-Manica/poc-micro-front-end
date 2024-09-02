@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import './host.css';
+
 import App from 'MFEComponents/App';
 
 import {
@@ -36,8 +38,8 @@ const HostApp: React.FC = () => {
 
   return (
     <TranslationProvider additionalResources={additionalResources}>
-      <div style={{ backgroundColor: 'green' }}>
-        <p>aplicação A principal</p>
+      <div className='aplicacao-host'>
+        <p className='shared-class'>aplicação A principal</p>
         <button
           onClick={() => {
             changeLanguage(i18nInstance.language === 'en' ? 'ptbr' : 'en');
